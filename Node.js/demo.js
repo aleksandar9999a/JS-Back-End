@@ -1,4 +1,5 @@
 const fileManger = require('./file-manger');
+const _ = require('lodash');
 
 fileManger.readUsers(function(err, content){
     if (err) {
@@ -6,8 +7,8 @@ fileManger.readUsers(function(err, content){
         return;
     }
 
-    console.log(content);
+    const userArray = content.split(', ');
+    console.log(_.chunk(userArray, 2));
 });
-
 
 console.log('Hello World!');
