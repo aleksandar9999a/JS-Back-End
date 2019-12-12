@@ -1,14 +1,13 @@
 const express = require('express');
+const users = require('./users');
 const router = express.Router();
 
-const users = [
-    {
-        id: 1,
-        name: 'Pesho'
-    }
-];
 
-router.get('/user/', (req, res) => {
+function middleware(req, res, next){
+    next();
+}
+
+router.get('/user/', middleware, (req, res) => {
     res.send(users);
 })
 
