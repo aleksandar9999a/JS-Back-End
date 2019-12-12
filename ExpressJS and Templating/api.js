@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 function middleware(req, res, next){
-    next();
+    next(new Error('uuuu'));
 }
 
 router.get('/user/', middleware, (req, res) => {
