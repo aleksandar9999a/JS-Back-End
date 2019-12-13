@@ -4,7 +4,10 @@ const router = express.Router();
 
 
 function getCurrUser(req, res, next){
-    next(undefined);
+    setTimeout(function(){
+        req.user = users[0];
+        next()
+    }, 500);
 }
 
 function auth(req, res, next){

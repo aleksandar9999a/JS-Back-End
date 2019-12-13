@@ -8,6 +8,11 @@ function defaultHandler(req, res) {
     res.send('Hello World!');
 }
 
+app.use((req, res, next) => {
+    console.log(`Time: ${Date.now()}`);;
+    next();
+});
+
 app.get('/', defaultHandler);
 app.use('/api', api);
 
