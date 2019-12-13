@@ -3,11 +3,15 @@ const users = require('./users');
 const router = express.Router();
 
 
-function middleware(req, res, next){
-    next(new Error('uuuu'));
+function getCurrUser(req, res, next){
+    next(undefined);
 }
 
-router.get('/user/', middleware, (req, res) => {
+function auth(req, res, next){
+    next(!!req.user ? undefined : new Error('Not allowed!'))
+}
+
+router.get('/user/', getCurrUser, auth, (req, res) => {
     res.send(users);
 })
 
