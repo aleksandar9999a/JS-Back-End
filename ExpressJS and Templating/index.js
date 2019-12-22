@@ -4,9 +4,15 @@ const port = 8080;
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 
 function defaultHandler(req, res) {
-    res.send('<h1>Hello World!</h1><script src="file.js"></script>');
+    res.render('index.hbs', 
+    {
+        title: 'Title',
+        body: 'Wow'
+    })
 }
 
 app.use((req, res, next) => {
