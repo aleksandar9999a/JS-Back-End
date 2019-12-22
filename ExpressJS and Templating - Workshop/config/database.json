@@ -1,5 +1,5 @@
 {
-  "lastIndex": 1,
+  "lastIndex": 5,
   "entities": [
     {
       "id": 1,
@@ -9,25 +9,32 @@
       "defficultyLevel": 3
     },
     {
-        "id": 2,
-        "name": "Eco-Dark",
-        "description": "test test",
-        "imageUrl": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
-        "defficultyLevel": 6
-      },
-      {
-        "id": 3,
-        "name": "Pyraminx",
-        "description": "test test",
-        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61izOzq%2BBAL._SY355_.jpg",
-        "defficultyLevel": 1
-      },
-      {
-        "id": 4,
-        "name": "Megaminx",
-        "description": "test test",
-        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg",
-        "defficultyLevel": 3
-      }
+      "id": 2,
+      "name": "Eco-Dark",
+      "description": "test test",
+      "imageUrl": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
+      "defficultyLevel": 6
+    },
+    {
+      "id": 3,
+      "name": "Pyraminx",
+      "description": "test test",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61izOzq%2BBAL._SY355_.jpg",
+      "defficultyLevel": 1
+    },
+    {
+      "id": 4,
+      "name": "Megaminx",
+      "description": "test test",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg",
+      "defficultyLevel": 3
+    },
+    {
+      "id": 5,
+      "name": "WoW",
+      "description": "Unikalna igra",
+      "imageUrl": "https://img.resized.co/dexerto/eyJkYXRhIjoie1widXJsXCI6XCJodHRwczpcXFwvXFxcL2ltYWdlcy5kZXhlcnRvLmNvbVxcXC91cGxvYWRzXFxcL3RodW1ibmFpbHNcXFwvX3RodW1ibmFpbExhcmdlXFxcL1dvVy1DbGFzc2ljLWlzLXNvLXBvcHVsYXItQmxpenphcmQtaGFkLXRvLW9wZW4tbmV3LXNlcnZlcnMtYWxyZWFkeS5qcGdcIixcIndpZHRoXCI6NjIwLFwiaGVpZ2h0XCI6MzQ3LFwiZGVmYXVsdFwiOlwiaHR0cHM6XFxcL1xcXC9zMy1ldS13ZXN0LTEuYW1hem9uYXdzLmNvbVxcXC9wcGx1cy5pbWFnZXMuZGV4ZXJ0by5jb21cXFwvdXBsb2Fkc1xcXC8yMDE5XFxcLzExXFxcLzExMjE0OTQzXFxcL3BsYWNlaG9sZGVyLmpwZ1wifSIsImhhc2giOiI4OWVmODc5NTYxZTM2YjRlOTFjNTc2YTkzNDI1NTRlYzczZmRkMzQ3In0=/wow-classic-is-so-popular-blizzard-had-to-open-new-servers-already.jpg",
+      "defficultyLevel": "5"
+    }
   ]
 }
