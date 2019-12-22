@@ -57,7 +57,7 @@ class CubeModel {
     }
 
     getOne(id) {
-        return Promise.resolve(this.data.entities.find(({ id: i }) => i === id));
+        return Promise.resolve(this.data.entities.find(({ id: i }) => i == id));
     }
 
     getAll() {
