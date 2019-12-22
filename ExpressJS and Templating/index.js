@@ -3,9 +3,10 @@ const api = require('./api');
 const port = 8080;
 const app = express();
 
+app.use(express.static(__dirname + '/public'));
 
 function defaultHandler(req, res) {
-    res.send('Hello World!');
+    res.send('<h1>Hello World!</h1><script src="file.js"></script>');
 }
 
 app.use((req, res, next) => {
