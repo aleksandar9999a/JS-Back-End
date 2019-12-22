@@ -8,20 +8,17 @@ class CubeModel {
 
     _write(newData, resolveData){
         return new Promise((res, rej) => {
-            fs.writeFile(path.resolve('../config/database.json'), JSON.stringify(newData), (err) => {
-                if (err) {
-                    reject(err);
-                    return;
-                }
+            fs.writeFile(path.resolve('config/database.json'), JSON.stringify(newData), (err) => {
+                if (err) { rej(err);  return; }
 
                 this.data = newData;
-                resolve(resolveData)
+                res(resolveData)
             })
         })
     }
 
     insert(newCube) {
-        const newIndex = this.data.lastIndex++;
+        const newIndex = this.data.lastIndex + 1;
         newCube = { id: newIndex, ...newCube };
         const newData = {
             lastIndex: newIndex,
@@ -43,8 +40,16 @@ class CubeModel {
         return this._write(newData, updatedEntity);
     }
 
-    delete() {
+    delete(id) {
+        const deletedEntity = this.getOne(id);
 
+        const newData = {
+            lastIndex: this.data.lastIndex,
+            entities: this.data.entities.filter(({id: i}) => i !== id)
+        };
+
+
+        return this._write(newData, deletedEntity);
     }
 
     getOne(id) {
