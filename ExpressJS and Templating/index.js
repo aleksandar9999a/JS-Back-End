@@ -1,18 +1,16 @@
 const express = require('express');
+const handlebars = require('express-handlebars')
 const api = require('./api');
 const port = 8080;
+
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'hbs');
+app.engine('.hbs', handlebars({ extname: '.hbs' }));
 app.set('views', __dirname + '/views');
 
 function defaultHandler(req, res) {
-    res.render('index.hbs', 
-    {
-        title: 'Title',
-        body: 'Wow'
-    })
+    res.render('index.hbs', {title: 'Title', body: 'Test'});
 }
 
 app.use((req, res, next) => {
@@ -20,8 +18,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', defaultHandler);
 app.use('/api', api);
+app.get('/', defaultHandler);
 
 app.use(function(err, req, res, next){
     console.error(err.stack);
