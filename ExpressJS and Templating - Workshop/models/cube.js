@@ -6,15 +6,19 @@ class CubeModel {
         this.data = require('../config/database');
     }
 
-    _write(newData, resolveData){
+    _write(newData, resolveData) {
         return new Promise((res, rej) => {
-            fs.writeFile(path.resolve('config/database.json'), JSON.stringify(newData), (err) => {
-                if (err) { rej(err);  return; }
+            fs.writeFile(path.resolve('config/database.json'), JSON.stringify(newData, null, 2), (err) => {
+                if (err) { rej(err); return; }
 
                 this.data = newData;
                 res(resolveData)
             })
         })
+    }
+
+    create(name, description, imageUrl, defficultyLevel) {
+        return { name, description, imageUrl, defficultyLevel }
     }
 
     insert(newCube) {
@@ -45,7 +49,7 @@ class CubeModel {
 
         const newData = {
             lastIndex: this.data.lastIndex,
-            entities: this.data.entities.filter(({id: i}) => i !== id)
+            entities: this.data.entities.filter(({ id: i }) => i !== id)
         };
 
 
@@ -53,7 +57,7 @@ class CubeModel {
     }
 
     getOne(id) {
-        return Promise.resolve(this.data.entities.find(({id: i}) => i === id));
+        return Promise.resolve(this.data.entities.find(({ id: i }) => i === id));
     }
 
     getAll() {
