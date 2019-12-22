@@ -1,7 +1,4 @@
-// TODO: Require Controllers...
-
+const index = module.require('../controllers/cube')
 module.exports = (app) => {
-    app.get('/', (req, res) => {
-        res.render('index.hbs')
-    })
+    app.get('/', index)
 };
