@@ -16,7 +16,7 @@ function attachGet(req, res, next) {
     cubeModel.findById(cubeId).then(
         cube => Promise.all([cube, accessoryModel.find({ cubes: { $nin: cube.accessories } })])
     ).then(([cube, filterAccessories]) => {
-        res.render('attachAccessory.hbs', { cube, accessories: filterAccessories })
+        res.render('attachAccessory.hbs', { cube, accessories: filterAccessories.filter(x => !x.cubes.includes(cube._id)) })
     }).catch(next)
 }
 
