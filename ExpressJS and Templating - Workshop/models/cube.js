@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 
-const modelSchema = new mongoose.Schema({
-    name: String, 
-    description: String, 
-    imageUrl: String, 
+const cubeSchema = new mongoose.Schema({
+    name: String,
+    description: String,
+    imageUrl: String,
     defficultyLevel: Number
 });
 
-module.exports = mongoose.model('Cube', modelSchema);
+cubeSchema.methods.getDescription = function () {
+    return this.description;
+}
+
+module.exports = mongoose.model('Cube', cubeSchema);

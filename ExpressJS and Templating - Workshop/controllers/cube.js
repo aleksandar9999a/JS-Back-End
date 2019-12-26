@@ -15,9 +15,10 @@ function index(req, res, next) {
     //     }
     //     return result;
     // }
-    
+
     cubeModel.find().then(cubes => {
-        res.render('index.hbs', { cubes, 
+        res.render('index.hbs', {
+            cubes,
             // search, from, to 
         })
     }).catch(next)
@@ -25,7 +26,7 @@ function index(req, res, next) {
 
 function details(req, res, next) {
     const id = req.params.id;
-    cubeModel.getOne(id).then(cube => {
+    cubeModel.findById(id).then(cube => {
         res.render('details.hbs', { cube })
     }).catch(next)
 }
