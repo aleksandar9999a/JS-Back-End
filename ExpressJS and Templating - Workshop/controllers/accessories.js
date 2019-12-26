@@ -25,8 +25,8 @@ function attachPost(req, res, next) {
     const { accessory: accessoryId } = req.body;
 
     Promise.all([
-        cubeModel.update({ _id: id }, { $push: { accessories: accessoryId } }),
-        accessoryModel.update({ _id: accessoryId }, { $push: { cubes: id } })
+        cubeModel.updateOne({ _id: id }, { $push: { accessories: accessoryId } }),
+        accessoryModel.updateOne({ _id: accessoryId }, { $push: { cubes: id } })
     ]).then(() => {
         res.redirect('/')
     });

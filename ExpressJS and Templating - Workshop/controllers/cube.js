@@ -1,4 +1,4 @@
-const { cubeModel } = require('../models/index')
+const { cubeModel, accessoryModel } = require('../models/index')
 
 function index(req, res, next) {
     // const { from, to, search } = req.query;
@@ -27,7 +27,10 @@ function index(req, res, next) {
 function details(req, res, next) {
     const id = req.params.id;
     cubeModel.findById(id).then(cube => {
-        res.render('details.hbs', { cube })
+        console.log(cube);
+        const accessories = [];
+        cube.accessories.map(x => accessoryModel.findById(x).then(e => accessories.push(e)));
+        res.render('details.hbs', { cube, accessories })
     }).catch(next)
 }
 

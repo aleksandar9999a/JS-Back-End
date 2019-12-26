@@ -31,7 +31,7 @@
 
       <h2>Accessories</h2>
        <div class="accessories">
-         {{#if accessories}}
+        {{#if accessories}}
           {{#each accessories}}
               <div class="accessory">
                 <img src="{{this.imageUrl}}" alt="stickerName">
@@ -39,9 +39,9 @@
                 <p>{{this.description}}</p>
               </div>
           {{/each}}
-         {{else}}
+        {{else}}
           <h3 class="italic">This cube has no accessories yet...</h3>
-         {{/if}}
+        {{/if}}
        </div>
     </main>
   </div>
