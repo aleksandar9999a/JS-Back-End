@@ -1,4 +1,4 @@
-const cubeModel = require('../models/cube')
+const { cubeModel } = require('../models/index')
 
 function index(req, res, next) {
     // const { from, to, search } = req.query;
