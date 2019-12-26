@@ -4,10 +4,11 @@ function loadCreateForm(req, res) {
     res.render('create.hbs')
 }
 
-function createCube(req, res){
+function createCube(req, res) {
     const { name = null, description = null, imageUrl = null, difficultyLevel = null } = req.body;
-    const newCube = cubeModel.create(name, description, imageUrl, difficultyLevel);
-    cubeModel.insert(newCube).then(insertedCube => res.redirect('/'));
+    console.log(difficultyLevel);
+    
+    cubeModel.create({ name, description, imageUrl, difficultyLevel }).then(insertedCube => res.redirect('/'));
 }
 
 module.exports = { loadCreateForm, createCube };
