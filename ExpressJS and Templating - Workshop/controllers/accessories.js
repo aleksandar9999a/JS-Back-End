@@ -11,11 +11,17 @@ function create(req, res) {
         .catch(console.error)
 }
 
-function attach(req, res, next){
+function attachGet(req, res, next) {
     const { id: cubeId } = req.params;
-    cubeModel.findById(cubeId).then(cube => {
-        res.render('attachAccessory.hbs', { cube })
+    cubeModel.findById(cubeId).then(
+        cube => Promise.all([cube, accessoryModel.find({ cubes: { $nin: cube.accessories } })])
+    ).then(([cube, filterAccessories]) => {
+        res.render('attachAccessory.hbs', { cube, accessories: filterAccessories })
     }).catch(next)
 }
 
-module.exports = { create, loadForm, attach };
+function attachPost(req, res, next){
+    
+}
+
+module.exports = { create, loadForm, attachGet, attachPost };
