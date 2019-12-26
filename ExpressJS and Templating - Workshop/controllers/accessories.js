@@ -20,8 +20,16 @@ function attachGet(req, res, next) {
     }).catch(next)
 }
 
-function attachPost(req, res, next){
-    
+function attachPost(req, res, next) {
+    const { id } = req.params;
+    const { accessory: accessoryId } = req.body;
+
+    Promise.all([
+        cubeModel.update({ _id: id }, { $push: { accessories: accessoryId } }),
+        accessoryModel.update({ _id: accessoryId }, { $push: { cubes: id } })
+    ]).then(() => {
+        res.redirect('/')
+    });
 }
 
 module.exports = { create, loadForm, attachGet, attachPost };

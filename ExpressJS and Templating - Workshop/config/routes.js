@@ -7,6 +7,7 @@ const notFound = module.require('../controllers/notFound')
 module.exports = (app) => {
 
     app.get('/attach/accessory/:id', accessoryController.attachGet);
+    app.post('/attach/accessory/:id', accessoryController.attachPost);
     app.get('/create/accessory', accessoryController.loadForm);
     app.post('/create/accessory', accessoryController.create);
 
