@@ -3,12 +3,12 @@ const fs = require('fs');
 const path = require('path');
 // const cats = require('./../data/cats');
 
-function homeHandler(req, res) {
+module.exports = function (req, res) {
     const { pathname } = url.parse(req.url);
 
     if (pathname === '/' && req.method === 'GET') {
         const filePath = path.normalize(path.join(__dirname, './../views/home/index.html'));
-        const file = fs.readFile(filePath, function (err, data) {
+        fs.readFile(filePath, function (err, data) {
             if (err) {
                 console.log(err);
                 res.writeHead(404, {
@@ -26,14 +26,8 @@ function homeHandler(req, res) {
             res.end();
         });
 
-
         return;
     }
 
     return true;
-}
-
-
-module.exports = {
-    homeHandler
 }
